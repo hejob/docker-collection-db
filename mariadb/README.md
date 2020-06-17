@@ -10,5 +10,7 @@ run
 
 run on localhost:3306, with local default account root/root
 
-optional: run phpmyadmin in the same network, see [docker-compose.yml](./docker-compose.yml)
+## phpmyadmin
+
+http://localhost:8088
 
