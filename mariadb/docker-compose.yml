@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: mariadb_local
+    build: ./db
+    volumes:
+      - ./db/mysql_data:/var/lib/mysql:cached
+    ports:
+      - "3306:3306"
+    hostname: localhost
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+#     networks:
+#       br0:
+#         # localhost → 192.168.202.2
+#         ipv4_address: 192.168.204.2
+#   phpmyadmin:
+#     container_name: phpmyadmin_local
+#     image: phpmyadmin/phpmyadmin
+#     environment:
+#       - PMA_ARBITRARY=1
+#       - PMA_HOST=mysql
+#       - PMA_USER=root
+#       - PMA_PASSWORD=root
+#     links:
+#       - mysql
+#     ports:
+#      - 8088:80
+#     #expose:
+#     #  - "80"
+#     volumes:
+#       - /sessions
+#     networks:
+#       br0:
+#         ipv4_address: 192.168.204.4
+# networks:
+#   br0:
+#     driver: bridge
+#     ipam:
+#       config:
+#       - subnet: 192.168.204.0/24
+#         # gateway: 192.168.204.1
